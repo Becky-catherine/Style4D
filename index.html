@@ -158,23 +158,23 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <p class="text-justify">
-                <strong>TL;DR:</strong> We present SparseNeRF, a simple yet effective method that synthesizes novel views given a few images. SparseNeRF distills robust local depth ranking priors from real-world inaccurate depth observations, such as pre-trained monocular depth estimation models or consumer-level depth sensors.
+                <strong>TL;DR:</strong> We present Style4D, a new framework for stylizing dynamic 4D scenes, preserving both temporal and multi-view consistency.
                 </p>
                 <video id="v0" width="100%" autoplay loop muted controls>
-                    <source src="img/demo_video_v8_task.mp4" type="video/mp4"/>
+                    <source src="img/demo_video.mp4" type="video/mp4"/>
                 </video>
                 <h3>
                     Abstract
                 </h3>
                 <p class="text-justify">
-                    Neural Radiance Field (NeRF) significantly degrades when only a limited number of views are available. To complement the lack of 3D information, depth-based models, such as DSNeRF and MonoSDF, explicitly assume the availability of accurate depth maps of multiple views. They linearly scale the accurate depth maps as supervision to guide the predicted depth of few-shot NeRFs. However, accurate depth maps are difficult and expensive to capture due to wide-range depth distances in the wild. 
-                    In this work, we present a new Sparse-view NeRF (<strong>SparseNeRF</strong>) framework that exploits depth priors from real-world inaccurate observations. The coarse depth observations are either from pre-trained depth models or coarse depth maps of consumer-level depth sensors. Since coarse depth maps are not strictly scaled to the ground-truth depth maps, we propose a simple yet effective constraint, a local depth ranking method, on NeRFs such that the expected depth ranking of the NeRF is consistent with that of the coarse depth maps in local patches. To preserve the spatial continuity of the estimated depth of NeRF, we further propose a spatial continuity constraint to encourage the consistency of the expected depth continuity of NeRF with coarse depth maps. Surprisingly, with simple depth ranking constraints, SparseNeRF outperforms all state-of-the-art few-shot NeRF methods (including depth-based models) on standard LLFF and DTU datasets. Moreover, we collect a new dataset NVS-RGBD that contains real-world depth maps from Azure Kinect, ZED 2, and iPhone 13 Pro. Extensive experiments on NVS-RGBD dataset also validate the superiority and generalizability of SparseNeRF.
+                    4D stylization aims at stylized rendering of dynamic 4D scenes while maintaining view and temporal consistency. Existing approaches achieve impressive results for 2D image stylization or static 3D scenes. However, it is difficult to extend these methods to dynamic 4D scenes due to significant complexities in preserving temporal coherence and multi-view consistency. To tackle this problem, we present <strong>Style4D</strong>, a 4D scene stylization framework that builds upon 4D Gaussian Splatting. Style4D consists of three key components, including a basic 4DGS representation, a Style Gaussian Representation, and a Holistic Geometry-preserved Style Transfer module. The basic 4DGS representation establish robust scene geometry. The Style Gaussian Representation introduces lightweight per-Gaussian MLPs that predict style effects over time and depth, allowing precise temporal control of appearance and texture. To address temporal flickering and view inconsistency issues in existing stylization methods, we propose a novel Holistic Geometry-preserved Style Transfer module that contains an attention-enhanced contrastive coherence preserving mechanism for learning spatial-temporal consistency, and a content preservation mechanism to preserve scene structure. Extensive experiments demonstrate that Style4D preserves temporal coherence and multi-view consistency, and achieves state-of-the-art 4D stylization quality with fine-grained details.
                 </p>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+<!--             可增加动机 -->
+<!--             <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Motivation
                 </h3>
@@ -185,7 +185,7 @@
                 <p class="text-justify">
                     Depth maps are coarse: (a) inconsistent 3D geometry; (b) and (c) time jittering; (d) scale-invariant error. Directly scaling the coarse depth maps to a NeRF leads to inconsistent geometry against the expected depth of the NeRF. Instead of directly supervising a NeRF with coarse depth priors, we relax hard depth constraints and distill robust local depth ranking from the coarse depth maps to a NeRF such that the depth ranking of a NeRF is consistent with that of coarse depth. That is, we supervise a NeRF with relative depth instead of absolute depth.
                </p>
-            </div>
+            </div> -->
         </div>
     
     
@@ -198,7 +198,7 @@
                     <image src="img/framework.png" class="img-responsive" alt="scales">
                 </p>
                 <p class="text-justify">
-                    Framework Overview. SparseNeRF consists of two streams, i.e., NeRF and depth prior distillation. As for NeRF, we use Mip-NeRF as the backbone. we use a NeRF reconstruction loss. As for depth prior distillation, we distill depth priors from a pre-trained depth model. Specifically, we propose a local depth ranking regularization and a spatial continuity regularization to distill robust depth priors from coarse depth maps.
+                    Overview of Style4D. Style4D consists of three key components, a basic 4DGS representation, a Style Gaussian Representation, and a Holistic Geomentry-preserved Style Transfer. We first train a basic 4DGS representation with the content image to obtain 4D scene geometry. Then we propose a new Style Gaussian Representation for 4D stylization. We also introduce a Holistic Geometry-preserved Style Transfer module to improve consistency and quality of stylization.
                 </p>
             </div>
         </div>
@@ -210,7 +210,7 @@
                 </h3>
                 <div class="text-center">
                     <div style="position:relative;padding-top:56.25%;">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/V0yCTakA964" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                        <iframe width="560" height="315" src="https://youtu.be/SgyjcxkBzLg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
                     </div>
                 </div>
             </div>
@@ -270,11 +270,11 @@
                     Acknowledgements
                 </h3>
                 <p class="text-justify">
-                    This work is supported by the National Research Foundation, Singapore under its AI Singapore Programme, NTU NAP, MOE AcRF Tier 2 (T2EP20221-0033), and under the RIE2020 Industry Alignment Fund - Industry Collaboration Projects (IAF-ICP) Funding Initiative, as well as cash and in-kind contribution from the industry partner(s).
+<!--                     This work is supported by the National Research Foundation, Singapore under its AI Singapore Programme, NTU NAP, MOE AcRF Tier 2 (T2EP20221-0033), and under the RIE2020 Industry Alignment Fund - Industry Collaboration Projects (IAF-ICP) Funding Initiative, as well as cash and in-kind contribution from the industry partner(s). -->
                     <br>
 
 
-                The website template is borrowed from <a href="https://jonbarron.info/mipnerf/">Mip-NeRF</a>.
+                The website template is borrowed from <a href="https://sparsenerf.github.io/">SparseNeRF</a>.
                 </p>
                 <br>
             </div>
@@ -288,7 +288,7 @@
 
     <!-- <div class="section" style="width:200px; margin-left: 40%;">  -->
     <div class="section" style="text-align:center; padding:0 0 20px 0">
-        <a href='https://clustrmaps.com/site/1bttf'  title='Visit tracker'><img src='//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=tt&d=ON2inUjCQJIOYgEVeUFiZy0DGmbC8DbWuTjJ5QVVhII'/></a>
+        <a href="https://clustrmaps.com/site/1c6m7"  title="ClustrMaps"><img src="//www.clustrmaps.com/map_v2.png?d=R6omcJIZQKvI02heb0DO4AWuoeBEIrySs3zSmBj72gg&cl=ffffff" /></a>
     </div>
 
 
