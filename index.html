@@ -157,9 +157,9 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <p class="text-justify">
+<!--                 <p class="text-justify">
                 <strong>TL;DR:</strong> We present Style4D, a new framework for stylizing dynamic 4D scenes, preserving both temporal and multi-view consistency.
-                </p>
+                </p> -->
                 <video id="v0" width="100%" autoplay loop muted controls>
                     <source src="img/mission.mp4" type="video/mp4"/>
                 </video>
@@ -167,7 +167,7 @@
                     Abstract
                 </h3>
                 <p class="text-justify">
-                    4D stylization aims at stylized rendering of dynamic 4D scenes while maintaining view and temporal consistency. Existing approaches achieve impressive results for 2D image stylization or static 3D scenes. However, it is difficult to extend these methods to dynamic 4D scenes due to significant complexities in preserving temporal coherence and multi-view consistency. To tackle this problem, we present <strong>Style4D</strong>, a 4D scene stylization framework that builds upon 4D Gaussian Splatting. Style4D consists of three key components, including a basic 4DGS representation, a Style Gaussian Representation, and a Holistic Geometry-preserved Style Transfer module. The basic 4DGS representation establish robust scene geometry. The Style Gaussian Representation introduces lightweight per-Gaussian MLPs that predict style effects over time and depth, allowing precise temporal control of appearance and texture. To address temporal flickering and view inconsistency issues in existing stylization methods, we propose a novel Holistic Geometry-preserved Style Transfer module that contains an attention-enhanced contrastive coherence preserving mechanism for learning spatial-temporal consistency, and a content preservation mechanism to preserve scene structure. Extensive experiments demonstrate that Style4D preserves temporal coherence and multi-view consistency, and achieves state-of-the-art 4D stylization quality with fine-grained details.
+                    We introduce Style4D-Bench, the first benchmark suite specifically designed for 4D stylization, with the goal of standardizing evaluation and facilitating progress in this emerging area. Style4D-Bench comprises: 1) a strong baseline that make an initial attempt for 4D stylization, 2) a comprehensive evaluation protocol measuring spatial fidelity, temporal coherence, and multi-view consistency through both perceptual and quantitative metrics, and 3) a curated collection of high-resolution dynamic 4D scenes with diverse motions and complex backgrounds. To establish a strong baseline, we present Style4D, a novel framework built upon 4D Gaussian Splatting. It consists of three key components: a basic 4DGS scene representation to capture reliable geometry, a Style Gaussian Representation that leverages lightweight per-Gaussian MLPs for temporally and spatially aware appearance control, and a Holistic Geometry-Preserved Style Transfer module designed to enhance spatio-temporal consistency via contrastive coherence learning and structural content preservation. Extensive experiments on Style4D-Bench demonstrate that Style4D achieves state-of-the-art performance in 4D stylization, producing fine-grained stylistic details with stable temporal dynamics and consistent multi-view rendering. We expect Style4D-Bench to become a valuable resource for benchmarking and advancing research in stylized rendering of dynamic 3D scenes.
                 </p>
             </div>
         </div>
@@ -198,7 +198,7 @@
                     <image src="img/framework.png" class="img-responsive" alt="scales">
                 </p>
                 <p class="text-justify">
-                    Overview of Style4D. Style4D consists of three key components, a basic 4DGS representation, a Style Gaussian Representation, and a Holistic Geomentry-preserved Style Transfer. We first train a basic 4DGS representation with the content image to obtain 4D scene geometry. Then we propose a new Style Gaussian Representation for 4D stylization. We also introduce a Holistic Geometry-preserved Style Transfer module to improve consistency and quality of stylization.
+                    Framework Overview: Style4D consists of three key components, a basic 4DGS representation, a Style Gaussian Representation, and a Holistic Geometry-preserved Style Transfer. We first train a basic 4DGS representation with the content image to obtain 4D scene geometry. Then we propose a new Style Gaussian Representation for 4D stylization. We also introduce a Holistic Geometry-preserved Style Transfer module to improve consistency and quality of stylization.
                 </p>
             </div>
         </div>
@@ -210,7 +210,7 @@
                 </h3>
                 <div class="text-center">
                     <div style="position:relative;padding-top:56.25%;">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/SgyjcxkBzLg?si=sFDFXfOaZjwZoXiH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Tf6QnksXFxQ?si=HBLQqcwrXWQ-BU-p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
 
                     </div>
                 </div>
@@ -238,11 +238,11 @@
                 </h3>
                 <div class="form-group col-md-10" style="padding: 0%; margin: 0%;">
                     <textarea id="bibtex" class="form-control" readonly>
-@article{wang2023sparsenerf,
+<!-- @article{wang2023sparsenerf,
     title={SparseNeRF: Distilling Depth Ranking for Few-shot Novel View Synthesis},
     author={Guangcong and Zhaoxi Chen and Chen Change Loy and Ziwei Liu},
     journal={IEEE/CVF International Conference on Computer Vision (ICCV)},
-    year={2023}}
+    year={2023}} -->
                     </textarea>
                 </div>
             </div>
